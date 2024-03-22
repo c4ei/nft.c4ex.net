@@ -24,7 +24,7 @@ const Profile = ({ currentAccount , currentChainId }) => {
         <div className={Style.profile_account_info}>
           <p>AllAboutHealth</p>
           <small>{currentAccount.slice(0, 18)}..</small>
-          <p>{currentChainId}</p>
+          <p>{currentChainId.chainId}</p>
         </div>
       </div>
 

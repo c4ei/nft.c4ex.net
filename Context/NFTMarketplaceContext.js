@@ -65,6 +65,7 @@ export const NFTMarketplaceProvider = ({ children }) => {
         setCurrentAccount(accounts[0]);
         // console.log(accounts[0]);
         const getChainId = await provider.getNetwork();
+        console.log("68 NFTMarketplaceContext getChainId : " + getChainId);
         setCurrentChainId(getChainId);
       } else {
         // setError("No Account Found");
@@ -101,6 +102,7 @@ export const NFTMarketplaceProvider = ({ children }) => {
       setCurrentAccount(accounts[0]);
       const getChainId = await provider.getNetwork();
       setCurrentChainId(getChainId);
+      console.log("105 NFTMarketplaceContext getChainId : " + getChainId);
 
       // window.location.reload();
       connectingWithSmartContract();

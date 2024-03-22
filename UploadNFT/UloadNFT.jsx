@@ -76,6 +76,7 @@ const UloadNFT = ({ uploadToIPFS, createNFT, uploadToPinata }) => {
         <div className={formStyle.Form_box_input}>
           <label htmlFor="nft">Item Name</label>
           <input
+            id="nft"
             type="text"
             placeholder="AllAboutHealth"
             className={formStyle.Form_box_input_userName}
@@ -91,6 +92,7 @@ const UloadNFT = ({ uploadToIPFS, createNFT, uploadToPinata }) => {
             </div>
 
             <input
+              id="website"
               type="text"
               placeholder="website"
               onChange={(e) => setWebsite(e.target.value)}
@@ -107,8 +109,8 @@ const UloadNFT = ({ uploadToIPFS, createNFT, uploadToPinata }) => {
         <div className={formStyle.Form_box_input}>
           <label htmlFor="description">Description</label>
           <textarea
-            name=""
-            id=""
+            name="description"
+            id="description"
             cols="30"
             rows="6"
             placeholder="something about yourself in few words"

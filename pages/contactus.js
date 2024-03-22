@@ -76,18 +76,18 @@ const contactus = () => {
               <div className={formStyle.Form_box_input}>
                 <label htmlFor="description">Message</label>
                 <textarea
-                  name=""
-                  id=""
+                  name="txt_area_Msg"
+                  id="txt_area_Msg"
                   cols="30"
                   rows="6"
-                  placeholder="something about yourself in few words"
+                  placeholder="메세지를 보낼수 없습니다. c4ei.net@gmail.com 으로 메일 부탁드립니다. Message cannot be sent. Please send an email to c4ei.net@gmail.com."
                 ></textarea>
               </div>
-              <Button
+              {/* <Button
                 btnName="Send Message"
                 handleClick={() => {}}
                 classStyle={Style.button}
-              />
+              /> */}
             </form>
           </div>
         </div>

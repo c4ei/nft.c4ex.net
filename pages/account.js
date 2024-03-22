@@ -25,8 +25,10 @@ const account = () => {
       <div className={Style.account_info}>
         <h1>Profile settings</h1>
         <p>
-          You can set preferred display name, create your profile URL and manage
-          other personal settings.
+        현재 Profile settings은 사용 할 수 없습니다.
+        Profile settings are currently unavailable.
+          {/* You can set preferred display name, create your profile URL and manage
+          other personal settings. */}
         </p>
       </div>
 

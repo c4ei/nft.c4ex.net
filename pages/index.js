@@ -5,18 +5,18 @@ import Style from "../styles/index.module.css";
 import {
   HeroSection,
   Service,
-  BigNFTSilder,
+  // BigNFTSilder,
   Subscribe,
   Title,
-  Category,
+  // Category,
   Filter,
   NFTCard,
   Collection,
-  AudioLive,
-  FollowerTab,
-  Slider,
+  // AudioLive,
+  // FollowerTab,
+  // Slider,
   Brand,
-  Video,
+  // Video,
   Loader,
 } from "../components/componentsindex";
 import { getTopCreators } from "../TopCreators/TopCreators";
@@ -55,7 +55,7 @@ const Home = () => {
     <div className={Style.homePage}>
       <HeroSection />
       <Service />
-      <BigNFTSilder />
+      {/* <BigNFTSilder />
       <Title
         heading="Audio Collection"
         paragraph="Discover the most outstanding NFTs in all topics of life."
@@ -66,9 +66,11 @@ const Home = () => {
       ) : (
         <FollowerTab TopCreator={creators} />
       )}
+      <Slider /> */}
 
-      <Slider />
-      <Collection />
+      {/* Top List Creators  --> Collection */}
+      {/* <Collection />  */}
+
       <Title
         heading="Featured NFTs"
         paragraph="Discover the most outstanding NFTs in all topics of life."
@@ -76,14 +78,14 @@ const Home = () => {
       <Filter />
       {nfts.length == 0 ? <Loader /> : <NFTCard NFTData={nfts} />}
 
-      <Title
+      {/* <Title
         heading="Browse by category"
         paragraph="Explore the NFTs in the most featured categories."
       />
       <Category />
+      <Video /> */}
       <Subscribe />
       <Brand />
-      <Video />
     </div>
   );
 };
