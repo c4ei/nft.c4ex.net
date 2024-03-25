@@ -14,10 +14,12 @@ const Brand = () => {
     <div className={Style.Brand}>
       <div className={Style.Brand_box}>
         <div className={Style.Brand_box_left}>
-          {/* <Image src={images.logo} alt="brand logo" width={100} height={100} /> */}
           <a href="/">
-            <DiJqueryLogo className={Style.Brand_box_left_logo} />
+            <Image src={images.logo} alt="brand logo" width={280} height={100} />
           </a>
+          {/* <a href="/">
+            <DiJqueryLogo className={Style.Brand_box_left_logo} />
+          </a> */}
           <h1>Earn free crypto with Ciscrypt</h1>
           <p>A creative agency that lead and inspire.</p>
 

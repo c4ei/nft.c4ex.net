@@ -117,7 +117,8 @@ const SideBar = ({ setOpenSideMenu, currentAccount, connectWallet }) => {
         {/* <Image src={images.logo} alt="logo" width={150} height={150} /> */}
         <p>
           <a href="/">
-            <DiJqueryLogo className={Style.sideBar_box_logo} />
+            <Image src={images.logo} alt="brand logo" width={280} height={100} onClick={() => router.push("/")} />
+            {/* <DiJqueryLogo className={Style.sideBar_box_logo} /> */}
           </a>
         </p>
         <p>
