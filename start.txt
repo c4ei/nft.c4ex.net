@@ -1,47 +1,7 @@
-npx hardhat node
-npm install --save-dev "@ethersproject/providers@^5.4.7" "@nomicfoundation/hardhat-network-helpers@^1.0.0" "@nomicfoundation/hardhat-chai-matchers@^1.0.0" "@nomiclabs/hardhat-ethers@^2.0.0" "@nomiclabs/hardhat-etherscan@^3.0.0" "@types/chai@^4.2.0" "@types/mocha@>=9.1.0" "@typechain/ethers-v5@^10.1.0" "@typechain/hardhat@^6.1.2" "chai@^4.2.0" "hardhat-gas-reporter@^1.0.8" "solidity-coverage@^0.8.1" "ts-node@>=8.0.0" "typechain@^8.1.0" "typescript@>=4.5.0"
-npx hardhat run scripts/deploy.js --network c4ei
-npx hardhat run scripts/deploy.js --network aah
+2024-03-26
 
-
-/home/dev/www/nft.c4ei.net/Context/constants.js
-export const NFTMarketplaceAddress =
-  "0x2388CEFBBBDe88cA67B5Be817D14fAd5C35E9DF9";
-
-cd /home/dev/www/nft.c4ei.net
-yarn dev
+yarn hardhat run scripts/deploy.js --network aah
+Deployed contract address 0x51A282151C6aec664eDf64f1D4c7eCB39E8190F1
 
 cd /home/dev/www/nft.c4ex.net
-node server.js
-
-# 개발 모드
-next dev
-# 배포 모드
-next build
-next start
-
-cd /home/dev/www/nft.c4ex.net
-pm2 start npm --name "nft.c4ex.net" -- start
-
-
-NFTMarketplaceContext.js:277 TypeError: Cannot read properties of undefined (reading 'JsonRpcProvider')
-const provider = new ethers.providers.JsonRpcProvider(
-"https://rpc.c4ei.net" , 21004
-
-
-<h3>🌏 SOCIALS</h3>
-<a href="https://www.threads.net/@c4ei_net" target="_blank">
-  <TiSocialFacebook />
-</a>
-<a href="https://www.linkedin.com/in/c4ei/" target="_blank">
-  <TiSocialLinkedin />
-</a>
-<a href="https://www.instagram.com/c4ei_net/" target="_blank">
-  <TiSocialInstagram />
-</a>
-<a href="https://www.youtube.com/@c4ei_net" target="_blank">
-  <TiSocialYoutube />
-</a>
-<a href="https://twitter.com/c4ei_net/" target="_blank">
-  <TiSocialTwitter />
-</a>
+yarn start

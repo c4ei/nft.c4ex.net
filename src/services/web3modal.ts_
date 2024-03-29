@@ -1,0 +1,45 @@
+import { useWeb3Modal } from "@web3modal/wagmi/react";
+import { useEffect } from "react";
+import { ethers } from "ethers";
+import { WalletClient } from "viem";
+import { useAccount, useWalletClient } from "wagmi";
+
+const clientToProviderSigner = async (client: WalletClient) => {
+  const { account, chain, transport } = client;
+  const network = {
+    chainId: chain?.id,
+    name: chain?.name,
+    ensAddress: chain?.contracts?.ensRegistry?.address,
+  };
+  // You can use whatever provider that fits your need here.
+  const provider = new ethers.BrowserProvider(transport, network);
+  const signer = await provider.getSigner(account?.address);
+  return { provider, signer };
+};
+
+const App = () => {
+    const { open } = useWeb3Modal()
+    const { isConnected } = useAccount()
+    const { data: walletClient } = useWalletClient();
+
+    // This is to update ya state/redux store
+    const connectWallet = async () => {
+        if (!walletClient) return;
+        const { signer, provider } = await clientToProviderSigner(walletClient)
+        // Do whatever you want with the provider and signer like storing them in a state or context
+    };
+    
+    useEffect(() => {
+        // Only open modal if the user isn't connected
+        !isConnected && open()
+    }, [])
+
+    useEffect(() => {
+        // Finally we only want to get a provider if the user is connected(from the modal) AND there's a wallet client
+        isConnected && walletClient && connectWallet();
+    }, [isConnected, walletClient])
+
+
+}
+
+export default App
