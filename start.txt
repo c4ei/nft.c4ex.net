@@ -5,3 +5,14 @@ Deployed contract address 0x51A282151C6aec664eDf64f1D4c7eCB39E8190F1
 
 cd /home/dev/www/nft.c4ex.net
 yarn start
+
+
+BREAKING CHANGE: The request 'react/jsx-runtime' failed
+"react": "^17.0.2",
+"react-dom": "^17.0.2",
+ -->
+     "react": "^18.0.1",
+    "react-dom": "^18.0.1",
+
+
+yarn add url webpack-cli stream-http stream-browserify react-app-rewired os-browserify os https-browserify fs crypto-browserify buffer assert process

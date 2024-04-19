@@ -2,6 +2,31 @@ import { Link } from 'react-router-dom'
 import { connectWallet } from '../services/blockchain'
 import { truncate, useGlobalState } from '../store'
 
+import { ThirdwebProvider, ChainId, ConnectButton, } from "thirdweb/react";
+import { createWallet, walletConnect, inAppWallet, } from "thirdweb/wallets";
+// import { useSwitchChain } from "@thirdweb-dev/react";
+import { createThirdwebClient } from "thirdweb";
+import { AllAboutHealthy } from "@thirdweb-dev/chains";
+const activeChain = AllAboutHealthy;
+// const switchChain = useSwitchChain();
+const client = createThirdwebClient({  clientId: process.env.REACT_APP_TEMPLATE_CLIENT_ID,});
+const wallets = [
+  createWallet("io.metamask"),
+  createWallet("com.coinbase.wallet"),
+  walletConnect(),
+  inAppWallet({
+    auth: {
+      options: [
+        "email",
+        "google",
+        "apple",
+        "facebook",
+        "phone",
+      ],
+    },
+  }),
+];
+
 const Header = () => {
   const [connectedAccount] = useGlobalState('connectedAccount')
   const [connectedChainId] = useGlobalState('connectedChainId')
@@ -26,6 +51,20 @@ const Header = () => {
         <a href="https://docs.google.com/document/d/1S3HcMW2EmzvCEtDeF4JdSrbZOuO0JdPOHl5Stc0lhbE/edit?usp=sharing" target="_blank" rel="noopener noreferrer">사용법(DOC)</a>
         &nbsp;&nbsp;&nbsp;&nbsp;
       </ul>
+{/* 
+      <ThirdwebProvider clientId={process.env.REACT_APP_TEMPLATE_CLIENT_ID}
+        activeChain={activeChain}>
+        <ConnectButton
+          client={client}
+          wallets={wallets}
+          theme={"dark"}
+          connectModal={{ size: "wide" }}
+        />
+      </ThirdwebProvider> */}
+
+      {/* <button onClick={() => switchChain(AllAboutHealthy.chainId)}>
+        Switch to AAH
+      </button> */}
 
       {connectedAccount ? (
         <button
