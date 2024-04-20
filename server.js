@@ -9,7 +9,6 @@ app.use(express.json());
 var cors = require('cors');
 app.use(cors());
 
-
 app.use(express.static( path.join(__dirname, 'build') ))
 
 app.get('/', function(req,resp){
@@ -22,5 +21,5 @@ app.get('*', function (req, resp) {
 
 
 app.listen(3013, function () {
-  console.log('AAH NFT autcion listening on 3013')
+  console.log('NFT autcion listening on 3013')
 }); 
