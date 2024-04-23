@@ -5,7 +5,7 @@ import { setGlobalState } from '../store'
 import Countdown from './Countdown'
 
 const Artworks = ({ auctions, title, showOffer }) => {
-  // alert("8 /src/components/Artworks.jsx Artworks:");
+
   return (
     <div className="w-4/5 py-10 mx-auto justify-center">
       <p className="text-xl uppercase text-white mb-4">

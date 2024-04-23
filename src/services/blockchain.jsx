@@ -31,16 +31,15 @@ const getEthereumContract = async () => {
     const contract = new ethers.Contract(ContractAddress, ContractAbi, signer)
     return contract
   } else {
-    // const provider = new ethers.providers.Web3Provider(RPC_AAH);
-    // const contract = new ethers.Contract(ContractAddress, ContractAbi);
-    // console.log("36 getGlobalState : "+getGlobalState('contract'));
-    return getGlobalState('contract');
+    const AAHprovider = new ethers.providers.JsonRpcProvider(RPC_AAH);
+    const contract = new ethers.Contract(ContractAddress, ContractAbi,AAHprovider);
+    return contract
   }
 }
 
 const isWallectConnected = async () => {
   // try {
-    if (!await ethereum) return // alert('Please install Metamask-40')
+    if (!await ethereum) return
 
     const accounts = await ethereum.request({ method: 'eth_accounts' })
     const _chainId = Number(await ethereum.request({ method: "eth_chainId" }))
@@ -81,7 +80,7 @@ const isWallectConnected = async () => {
 
 const connectWallet = async () => {
   try {
-    if (!await ethereum) return // alert('Please install Metamask-81')
+    if (!await ethereum) return
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
     setGlobalState('connectedAccount', accounts[0]?.toLowerCase())
   } catch (error) {
@@ -97,12 +96,7 @@ const createNftItem = async ({
   price,
 }) => {
   try {
-    // alert('115 blockchain.jsx - createNftItem\n' +name+':name\n'+description+':description\n'+image+':image\n'+metadataURI+':metadataURI\n'+price+':price\n');
-    if (!ethereum) { 
-      return 
-      // alert('Please install Metamask-98') 
-    }
-
+    if (!ethereum) { return }
     const connectedAccount = getGlobalState('connectedAccount')
     const contract = await getEthereumContract()
     // alert(contract.address+" : contract-119 ln");
@@ -121,7 +115,6 @@ const createNftItem = async ({
     )
     await transaction.wait();
     closeModal()
-    // alert("116 : tx.wait()");
     await loadAuctions()
   } catch (error) {
     reportError(error)
@@ -135,7 +128,7 @@ const closeModal = () => {
 
 const updatePrice = async ({ tokenId, price }) => {
   try {
-    if (!ethereum) return // alert('Please install Metamask-132')
+    if (!ethereum) return 
     const connectedAccount = getGlobalState('connectedAccount')
     const contract = await getEthereumContract()
     tx = await contract.changePrice(tokenId, toWei(price), {
@@ -157,7 +150,7 @@ const offerItemOnMarket = async ({
   day,
 }) => {
   try {
-    if (!await ethereum) return // alert('Please install Metamask-154')
+    if (!await ethereum) return 
     const connectedAccount = getGlobalState('connectedAccount')
     const contract = await getEthereumContract()
     tx = await contract.offerAuction(tokenId, biddable, sec, min, hour, day, {
@@ -172,7 +165,7 @@ const offerItemOnMarket = async ({
 
 const buyNFTItem = async ({ tokenId, price }) => {
   try {
-    if (!await ethereum) return // alert('Please install Metamask-169')
+    if (!await ethereum) return 
     const connectedAccount = getGlobalState('connectedAccount')
     const contract = await getEthereumContract()
     tx = await contract.buyAuctionedItem(tokenId, {
@@ -189,7 +182,7 @@ const buyNFTItem = async ({ tokenId, price }) => {
 
 const bidOnNFT = async ({ tokenId, price }) => {
   try {
-    if (!ethereum) return // alert('Please install Metamask-186')
+    if (!ethereum) return 
     const connectedAccount = getGlobalState('connectedAccount')
     const contract = await getEthereumContract()
     tx = await contract.placeBid(tokenId, {
@@ -207,7 +200,7 @@ const bidOnNFT = async ({ tokenId, price }) => {
 
 const claimPrize = async ({ tokenId, id }) => {
   try {
-    if (!ethereum) return // alert('Please install Metamask-204')
+    if (!ethereum) return 
     const connectedAccount = getGlobalState('connectedAccount')
     const contract = await getEthereumContract()
     tx = await contract.claimPrize(tokenId, id, {
@@ -222,25 +215,19 @@ const claimPrize = async ({ tokenId, id }) => {
 
 const loadAuctions = async () => {
   try {
-    if (!await ethereum) return // alert('Please install Metamask-219')
+    if (!await ethereum) return
     const contract = await getEthereumContract()
     const auctions = await contract.getLiveAuctions()
     setGlobalState('auctions', structuredAuctions(auctions))
     setGlobalState('auction',structuredAuctions(auctions).sort(() => 0.5 - Math.random())[0],)
   } catch (error) {
     reportError(error)
-    // const provider = ((window.ethereum != null) ? new ethers.providers.Web3Provider(window.ethereum) : new ethers.providers.Web3Provider(RPC_C4EI));
-    // const signer = provider.getSigner()
-    // const contract = new ethers.Contract(ContractAddress, ContractAbi, signer)
-    // const auctions = await contract.getLiveAuctions()
-    // setGlobalState('auctions', structuredAuctions(auctions))
-    // setGlobalState('auction',structuredAuctions(auctions).sort(() => 0.5 - Math.random())[0],)
   }
 }
 
 const loadAuction = async (id) => {
   try {
-    if (!await ethereum) return // alert('Please install Metamask-237')
+    if (!await ethereum) return 
     const provider = ((window.ethereum != null) ? new ethers.providers.Web3Provider(window.ethereum) : new ethers.providers.Web3Provider(RPC_AAH));
 
     const contract = await getEthereumContract()
@@ -253,7 +240,7 @@ const loadAuction = async (id) => {
 
 const getBidders = async (id) => {
   try {
-    if (!ethereum) return // alert('Please install Metamask-248')
+    if (!ethereum) return 
     const contract = await getEthereumContract()
     const bidders = await contract.getBidders(id)
     setGlobalState('bidders', structuredBidders(bidders))

@@ -49,8 +49,8 @@ const Header = () => {
       >
         <Link to="/" className="mx-4 cursor-pointer">Market</Link>
         <Link to="/collections" className="mx-4 cursor-pointer">Collection</Link>
-        <a href="https://c4ei.net" target="_blank" rel="noopener noreferrer">AAH Home</a>
-        <a href="https://c4ex.net" target="_blank" rel="noopener noreferrer">Buy AAH</a>
+        <a href="https://c4ei.net/home" target="_blank" rel="noopener noreferrer">AAH</a>
+        <a href="https://c4ex.net" target="_blank" rel="noopener noreferrer">AAH Buy</a>
         <a href="https://docs.google.com/document/d/1S3HcMW2EmzvCEtDeF4JdSrbZOuO0JdPOHl5Stc0lhbE/edit?usp=sharing" target="_blank" rel="noopener noreferrer">사용법(DOC)</a>
         &nbsp;&nbsp;&nbsp;&nbsp;
       </ul>
