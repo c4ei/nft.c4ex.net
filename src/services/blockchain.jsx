@@ -39,13 +39,13 @@ const getEthereumContract = async () => {
 }
 
 const isWallectConnected = async () => {
-  try {
+  // try {
     if (!await ethereum) return // alert('Please install Metamask-40')
 
     const accounts = await ethereum.request({ method: 'eth_accounts' })
     const _chainId = Number(await ethereum.request({ method: "eth_chainId" }))
     if (_chainId!=21133) {
-      alert('Please change Network AAH current : '+_chainId)
+      alert('Please change Network AAH current : '+_chainId);
       return
     }
 
@@ -53,7 +53,7 @@ const isWallectConnected = async () => {
       setGlobalState('connectedAccount', accounts[0]?.toLowerCase())
       setGlobalState('connectedChainId', _chainId)
     } else {
-      alert('Please connect wallet.')
+      // alert('Please connect wallet.')
       console.log('No accounts found.')
     }
 
@@ -73,10 +73,10 @@ const isWallectConnected = async () => {
     })
 
 
-  } catch (error) {
-    alert('Please install Metamask')
-    reportError(error)
-  }
+  // } catch (error) {
+  //   alert('Please install Metamask')
+  //   reportError(error)
+  // }
 }
 
 const connectWallet = async () => {
@@ -98,7 +98,10 @@ const createNftItem = async ({
 }) => {
   try {
     // alert('115 blockchain.jsx - createNftItem\n' +name+':name\n'+description+':description\n'+image+':image\n'+metadataURI+':metadataURI\n'+price+':price\n');
-    if (!ethereum) { return alert('Please install Metamask-98') }
+    if (!ethereum) { 
+      return 
+      // alert('Please install Metamask-98') 
+    }
 
     const connectedAccount = getGlobalState('connectedAccount')
     const contract = await getEthereumContract()
