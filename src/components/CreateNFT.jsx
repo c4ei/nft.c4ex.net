@@ -11,7 +11,7 @@ const uploadJsonToIPFS = async (data) => {
   try {
     const response = await axios({
       method: "POST",
-      url: process.env.REACT_APP_PINATA_URL, //"https://api.pinata.cloud/pinning/pinJSONToIPFS",
+      url: process.env.REACT_APP_PINATA_URL,
       data: data,
       headers: {
         pinata_api_key: process.env.REACT_APP_PINATA_API,
@@ -50,35 +50,6 @@ const CreateNFT = () => {
     }).catch((e) => alert('some thing wrong!'+e))
               // .catch(() => reject())
 
-  /*
-    const formData = new FormData()
-    formData.append('name', name)
-    formData.append('price', price)
-    formData.append('description', description)
-    // formData.append('image', fileUrl)
-    formData.append('imageURL', fileUrl)
-    await toast.promise(
-      new Promise(async (resolve, reject) => {
-        await axios
-          .post('https://nftapi.c4ei.net/process', formData)
-          .then(async (res) => {
-            await createNftItem(res.data)
-              .then(async () => {
-                closeModal()
-                resolve()
-              })
-              .catch(() => reject())
-            reject()
-          })
-          .catch(() => reject())
-      }),
-      {
-        pending: 'Minting & saving data to chain...',
-        success: 'Minting completed, will reflect within 30sec 👌',
-        error: 'Encountered error 🤯',
-      },
-    )
-  */
   }
 
   const updImgToIPFS = async (file) => {

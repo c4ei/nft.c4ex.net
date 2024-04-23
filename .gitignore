@@ -25,6 +25,3 @@ dist-ssr
 *.sln
 *.sw?
 .env
-.env.c4ei
-.env.c4ex
-*.txt

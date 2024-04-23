@@ -1,4 +1,3 @@
-// import React, { Suspense } from 'react';
 import Nft from './views/Nft';
 import Home from './views/Home';
 import Header from './components/Header';
@@ -14,18 +13,6 @@ import { checkAuthState } from './services/chat';
 import { useEffect, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { Route, Routes } from 'react-router-dom';
-// const Nft = React.lazy(() => import('./views/Nft'));
-// const Home = React.lazy(() => import('./views/Home'));
-// const Header = React.lazy(() => import('./components/Header'));
-// const Footer = React.lazy(() => import('./components/Footer'));
-// const PlaceBid = React.lazy(() => import('./components/PlaceBid'));
-// const Collections = React.lazy(() => import('./views/Collections'));
-// const CreateNFT = React.lazy(() => import('./components/CreateNFT'));
-// const { isWallectConnected, loadAuctions } = React.lazy(() => import('./services/blockchain'));
-// const { setGlobalState, useGlobalState } = React.lazy(() => import('./store'));
-// const OfferItem = React.lazy(() => import('./components/OfferItem'));
-// const ChangePrice = React.lazy(() => import('./components/ChangePrice'));
-// const { checkAuthState } = React.lazy(() => import('./services/chat'));
 
 function App() {
   const [loaded, setLoaded] = useState(false);
